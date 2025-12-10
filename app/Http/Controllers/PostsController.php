@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -11,7 +13,10 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::with('comments')->get();
+        return inertia('Posts/Index', [
+            'posts' => $posts
+        ]);
     }
 
     /**
@@ -60,5 +65,13 @@ class PostsController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function deleteComment($commentId)
+    {
+        $comment = Comment::findOrFail($commentId);
+        $comment->delete();
+
+        return back();
     }
 }
