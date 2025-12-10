@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Post extends Model
+class Comment extends Model
 {
     use softDeletes, HasFactory;
 
-    protected $fillable = ['title', 'body'];
+    protected $fillable = ['body', 'user_id'];
 
-    public function comments()
+    // what relationship do we have with posts?
+    public function post()
     {
-        return $this->hasMany(Comment::class);
+        return $this->belongsTo(Post::class);
+
     }
 }

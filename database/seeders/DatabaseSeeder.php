@@ -21,7 +21,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // call the ItemsSeeder seeder
-        $this->call(ItemsSeeder::class);
-        $this->call(UsersSeeder::class);
+        $this->call([
+            ItemsSeeder::class,
+            UsersSeeder::class,
+            PostsSeeder::class,
+        ]);
     }
 }
