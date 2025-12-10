@@ -10,7 +10,7 @@ class Comment extends Model
 {
     use softDeletes, HasFactory;
 
-    protected $fillable = ['body', 'user_id'];
+    protected $fillable = ['comment', 'user_id'];
 
     // what relationship do we have with posts?
     public function post()

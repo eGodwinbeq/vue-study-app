@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -22,4 +23,5 @@ Route::put('/settings-update', [SettingsController::class, 'update'])->name('set
 
 
 //Mini-Forum
-Route::get('/posts', [PostsController::class, 'index'])->name('users.index');
+Route::get('/posts', [PostsController::class, 'index'])->name('posts.index');
+Route::delete('/comments/{commentId}', [PostsController::class, 'deleteComment'])->name('comments.delete');
