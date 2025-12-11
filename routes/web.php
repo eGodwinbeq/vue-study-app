@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\ItemsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\SettingsController;
@@ -24,4 +25,4 @@ Route::put('/settings-update', [SettingsController::class, 'update'])->name('set
 
 //Mini-Forum
 Route::get('/posts', [PostsController::class, 'index'])->name('posts.index');
-Route::delete('/comments/{commentId}', [PostsController::class, 'deleteComment'])->name('comments.delete');
+Route::delete('/comments/{commentId}', [CommentsController::class, 'destroy'])->name('comments.delete');
