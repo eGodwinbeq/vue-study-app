@@ -43,34 +43,17 @@ const submitSignature = () => {
             <form @submit.prevent="submitSignature" class="space-y-4">
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name *</label>
-                    <input
-                        id="name"
-                        v-model="form.name"
-                        type="text"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="Your name"
-                        required
-                    />
+                    <input id="name" v-model="form.name" type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your name" required/>
                     <span v-if="form.errors.name" class="text-red-500 text-sm mt-1">{{ form.errors.name }}</span>
                 </div>
 
                 <div>
                     <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                    <textarea
-                        id="message"
-                        v-model="form.message"
-                        rows="3"
-                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="Leave a message (optional)"
-                    ></textarea>
+                    <textarea id="message" v-model="form.message" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Leave a message (optional)"></textarea>
                     <span v-if="form.errors.message" class="text-red-500 text-sm mt-1">{{ form.errors.message }}</span>
                 </div>
 
-                <button
-                    type="submit"
-                    :disabled="form.processing"
-                    class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition disabled:opacity-50 disabled:cursor-not-allowed"
-                >
+                <button type="submit" :disabled="form.processing" class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition disabled:opacity-50 disabled:cursor-not-allowed">
                     <span v-if="form.processing">Submitting...</span>
                     <span v-else>Guest </span>
                 </button>
