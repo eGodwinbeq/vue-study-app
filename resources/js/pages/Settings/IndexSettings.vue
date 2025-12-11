@@ -38,7 +38,7 @@ function submit() {
             </div>
 
 
-            <!-- User Info -->
+            <!-- UsersController Info -->
             <h1 class="text-2xl font-semibold text-gray-800">{{ users.name }}</h1>
             <p class="text-gray-600 mb-4">{{ users.role }}</p>
 

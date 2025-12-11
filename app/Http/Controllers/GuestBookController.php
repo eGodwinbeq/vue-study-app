@@ -33,12 +33,12 @@ class GuestBookController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'message' => 'string',
+            'message' => 'string|nullable|max:255',
         ]);
 
         Signature::create($request->all());
 
-        return redirect()->route('guestbook.index')->with('message', 'Signature created successfully.');
+        return redirect()->route('guestbook.index')->with('message', 'You are welcome ' . $request->name . '! It\'s great to have you here.');
     }
 
     /**
